@@ -2,18 +2,22 @@ import "./cart-dropdown.styles.scss";
 import Button from "../button/button.component";
 import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/cart.context";
+import CartItem from "../cart-item/cart-item.component";
 
 const CartDropdown = () => {
-  const { cart } = useContext(CartContext);
-  const { currentCart, setCurrentCart } = useState(cart);
+  const { cartItems } = useContext(CartContext);
   return (
     <div className="cart-dropdown-container">
-      <div className="cart-items"></div>
-      {currentCart && currentCart.map((product) => <div>{product.name}</div>)}
-      <div></div>
-      <Button>
-        <div style={{ fontSize: "12px" }}>Go To Checkout</div>
-      </Button>
+      <div className="cart-items">
+        {cartItems.length ? (
+          cartItems.map((cartItem) => (
+            <CartItem key={cartItem.id} CartItem={cartItem} />
+          ))
+        ) : (
+          <span className="empty-message">Your cart is empty</span>
+        )}
+      </div>
+      <Button style={{ fontSize: "12px" }}>GO TO CHECKOUT</Button>
     </div>
   );
 };
