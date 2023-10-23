@@ -12,8 +12,6 @@ const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen, setIsCartOpen } = useContext(CartContext);
 
-  console.log(currentUser);
-
   return (
     <Fragment>
       <div className="navigation">
