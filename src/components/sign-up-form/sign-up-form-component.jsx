@@ -6,7 +6,7 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.utils";
-
+import { useNavigate } from "react-router-dom";
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -19,7 +19,7 @@ const SignUpForm = () => {
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -39,6 +39,7 @@ const SignUpForm = () => {
       });
 
       resetFormFields();
+      navigate("/");
     } catch (error) {
       if (error.code == "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");

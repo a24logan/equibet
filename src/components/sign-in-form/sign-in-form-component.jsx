@@ -6,7 +6,7 @@ import {
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
 import Button, { BUTTON_TYPES_CLASSES } from "../button/button.component";
-
+import { useNavigate } from "react-router-dom";
 const defaultFormFields = {
   email: "",
   password: "",
@@ -14,7 +14,7 @@ const defaultFormFields = {
 const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
-
+  const navigate = useNavigate();
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
   };
@@ -31,6 +31,7 @@ const SignInForm = () => {
       );
 
       resetFormFields();
+      navigate("/");
     } catch (error) {
       if (error.code === "auth/invalid-login-credentials") {
         alert("Incorrect password for email");
