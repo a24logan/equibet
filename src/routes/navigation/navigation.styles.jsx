@@ -11,7 +11,6 @@ export const NavigationContainer = styled.div`
 export const LogoContainer = styled(Link)`
   height: 100%;
   width: 70px;
-  padding: 25px;
 `;
 
 export const NavLinksContainer = styled.div`

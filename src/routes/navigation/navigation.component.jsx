@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import { Fragment } from "react";
-import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
+import Logo from "../../assets/logo.png";
+// import { ReactComponent as CrwnLogo } from "../../assets/logo.png";
 
 import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
@@ -22,7 +23,12 @@ const Navigation = () => {
     <Fragment>
       <NavigationContainer>
         <LogoContainer to="/">
-          <CrwnLogo className="logo"></CrwnLogo>
+          <img
+            src={Logo}
+            style={{ width: "150px" }}
+            alt=""
+            className="logo"
+          ></img>
         </LogoContainer>
         <NavLinksContainer>
           <NavLink to="/shop">SHOP</NavLink>
