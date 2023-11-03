@@ -9,13 +9,13 @@ export const CategoriesProvider = ({ children }) => {
   const [categoriesMap, setCategoriesMap] = useState({});
   const value = { categoriesMap };
 
-  useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
-      setCategoriesMap(categoryMap);
-    };
-    getCategoriesMap();
-  }, []);
+  // useEffect(() => {
+  //   const getCategoriesMap = async () => {
+  //     const categoryMap = await getCategoriesAndDocuments();
+  //     setCategoriesMap(categoryMap);
+  //   };
+  //   getCategoriesMap();
+  // }, []);
   return (
     <CategoriesContext.Provider value={value}>
       {children}

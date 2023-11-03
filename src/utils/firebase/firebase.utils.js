@@ -21,13 +21,13 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCy_wdyqp3hJNbRRJOEv_FtT0rcgp9Pnc0",
-  authDomain: "crwn-clothing-db-aca36.firebaseapp.com",
-  projectId: "crwn-clothing-db-aca36",
-  storageBucket: "crwn-clothing-db-aca36.appspot.com",
-  messagingSenderId: "1040351545815",
-  appId: "1:1040351545815:web:57d5e7c60468c3893fe392",
-  measurementId: "G-GV0PT842T1",
+  apiKey: "AIzaSyAlAstoW5fXa-uxQPCoUXHEQcnYJJ9F3-E",
+  authDomain: "equibet-1e52a.firebaseapp.com",
+  projectId: "equibet-1e52a",
+  storageBucket: "equibet-1e52a.appspot.com",
+  messagingSenderId: "856795985241",
+  appId: "1:856795985241:web:026bc8ad83c965d1f90848",
+  measurementId: "G-YR4KFTG9V4",
 };
 
 // Initialize Firebase
@@ -77,8 +77,9 @@ export const createUserDocumentFromAuth = async (
   if (!userAuth) return;
 
   const userDocRef = doc(db, "users", userAuth.uid);
+  console.log(userDocRef);
   const userSnapshot = await getDoc(userDocRef);
-
+  console.log(userSnapshot);
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
@@ -90,9 +91,12 @@ export const createUserDocumentFromAuth = async (
         ...additionalInformation,
       });
     } catch (error) {
+      console.log("error here");
       console.log("error creating user", error.message);
     }
   }
+  console.log("error here");
+
   return userDocRef;
 };
 
