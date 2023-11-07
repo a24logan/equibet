@@ -36,6 +36,7 @@ const SignUpForm = () => {
 
       const userDocRef = await createUserDocumentFromAuth(user, {
         displayName,
+        balance: 1000,
       });
 
       resetFormFields();
